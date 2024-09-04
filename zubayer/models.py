@@ -3,9 +3,9 @@ from django.db import models
 # HOME SECTION
 
 class Home(models.Model):
-    name = models.CharField(max_length=20)
-    greetings_1 = models.CharField(max_length=5)
-    greetings_2 = models.CharField(max_length=5)
+    name = models.CharField(max_length=40)
+    greetings_1 = models.CharField(max_length=20)
+    greetings_2 = models.CharField(max_length=20)
     picture = models.ImageField(upload_to='picture/')
     # save time when modified
     updated = models.DateTimeField(auto_now=True)
@@ -18,7 +18,7 @@ class Home(models.Model):
 
 class About(models.Model):
     heading = models.CharField(max_length=50)
-    career = models.CharField(max_length=20)
+    career = models.CharField(max_length=40)
     description = models.TextField(blank=False)
     profile_img = models.ImageField(upload_to='profile/')
     
@@ -31,7 +31,7 @@ class About(models.Model):
 class Profile(models.Model):
     about = models.ForeignKey(About,
                                 on_delete=models.CASCADE)
-    social_name = models.CharField(max_length=10)
+    social_name = models.CharField(max_length=20)
     link = models.URLField(max_length=200)
 
 
@@ -39,7 +39,7 @@ class Profile(models.Model):
 # SKILLS SECTION
 
 class Category(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=30)
 
     updated = models.DateTimeField(auto_now=True)
 
